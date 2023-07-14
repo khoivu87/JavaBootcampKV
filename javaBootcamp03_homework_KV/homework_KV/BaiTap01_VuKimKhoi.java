@@ -84,7 +84,11 @@ public class BaiTap01_VuKimKhoi {
 			readNum = scan.nextInt();
 		}while(readNum < 10 || readNum > 99);
 		
-		q4ReadNum(readNum);
+		//Bài 04 cách 01 switch-case
+//		q4ReadNum(readNum);
+		
+		//Bài 04 cách 02 dùng array
+		System.out.println("Cách đọc: " + q4ReadNumOpt2(readNum));
 		scan.nextLine();
 		//-----Bài 04 end-----
 		
@@ -176,6 +180,7 @@ public class BaiTap01_VuKimKhoi {
 	
 	/*
 	 * Bài 04 cách đọc số nguyên có 2 chữ số
+	 * Dùng switch case để lấy cách đọc chữ số hàng chục/ đơn vị
 	 */
 	public static void q4ReadNum(int inNum) {
 		int fDigit = inNum/10;
@@ -248,7 +253,39 @@ public class BaiTap01_VuKimKhoi {
 				break;
 		}
 		
-		System.out.println("Cách đọc: " + rFDigit + " " + rSDigit);
+		if(sDigit != 0) {
+			System.out.println("Cách đọc: " + rFDigit + " " + rSDigit);
+		}else {
+			System.out.println("Cách đọc: " + rFDigit);
+		}
+	}
+	
+	/*
+	 * Bài 04 cách đọc số nguyên có 2 chữ số
+	 * Option 02: Dùng 2 mảng chứa cách đọc hàng chục - tens và hàng đơn vị - units
+	 */
+	public static String q4ReadNumOpt2(int inNum) {
+		String numString;
+		String rFDigit = "", rSDigit = "";
+		
+		String[] units = {"", "một", "hai", "ba", "bốn", "lăm",
+				"sáu", "bảy", "tám", "chín"};
+		String[] tens = {"", "Mười", "Hai mươi", "Ba mươi", "Bốn mươi", "Năm mươi",
+				"Sáu mươi", "Bảy mươi", "Tám mươi", "Chín mươi"};
+		
+		int fDigit = inNum/10;
+		int sDigit = inNum%10;
+		
+		rFDigit = tens[fDigit];
+		rSDigit = units[sDigit];
+		
+		if(sDigit != 0) {
+			numString = rFDigit + " " + rSDigit;
+		}else {
+			numString = rFDigit;
+		}
+		
+		return numString;
 	}
 	
 	/*
