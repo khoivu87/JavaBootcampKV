@@ -238,11 +238,25 @@ public class BaiTap02_VuKimKhoi {
 	 */
 	public static void q7LinearEquation(Scanner scan) {
 		double aNum, bNum, xNum;
+		String input;
 		
-		System.out.print("Nhập số a: ");
-		aNum = scan.nextDouble();
-		System.out.print("Nhập số b: ");
-		bNum = scan.nextDouble();
+		//Nhập aNum, không cho phép user nhập blank/ empty/ text
+		do {
+			System.out.print("Nhập số a: ");
+			input = scan.nextLine();
+		}while(input.equals("") || input.isBlank() || input.isEmpty()
+				|| input.chars().allMatch(Character::isAlphabetic));
+		
+		aNum = Double.parseDouble(input);
+		
+		//Nhập bNum, không cho phép user nhập blank/ empty/ text
+		do {
+			System.out.print("Nhập số b: ");
+			input = scan.nextLine();
+		}while(input.equals("") || input.isBlank() || input.isEmpty()
+				|| input.chars().allMatch(Character::isAlphabetic));
+		
+		bNum = Double.parseDouble(input);
 		
 		xNum = -(bNum/aNum);
 		
@@ -255,13 +269,25 @@ public class BaiTap02_VuKimKhoi {
 	 */
 	public static void q8QuadraticEquation(Scanner scan) {
 		double aNum, bNum, xNum, xNum2;
+		String input;
 		
-		//Nhập a, b
-		System.out.print("Nhập số a: ");
-		aNum = scan.nextDouble();
+		//Nhập aNum, không cho phép user nhập blank/ empty/ text
+		do {
+			System.out.print("Nhập số a: ");
+			input = scan.nextLine();
+		}while(input.equals("") || input.isBlank() || input.isEmpty()
+				|| input.chars().allMatch(Character::isAlphabetic));
 		
-		System.out.print("Nhập số b: ");
-		bNum = scan.nextDouble();
+		aNum = Double.parseDouble(input);
+		
+		//Nhập bNum, không cho phép user nhập blank/ empty/ text
+		do {
+			System.out.print("Nhập số b: ");
+			input = scan.nextLine();
+		}while(input.equals("") || input.isBlank() || input.isEmpty()
+				|| input.chars().allMatch(Character::isAlphabetic));
+		
+		bNum = Double.parseDouble(input);
 		
 		//Tính x1, x2
 		xNum = Math.sqrt(Math.abs(-bNum/aNum));
